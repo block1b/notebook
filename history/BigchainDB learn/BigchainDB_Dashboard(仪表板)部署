@@ -1,0 +1,43 @@
+BigchainDB仪表，按时间显示交易数据。
+
+语言：js
+
+按着他的教程装就好了
+https://github.com/bigchaindb/dashboard
+
+小坑：
+1.这里监听的是websocket的端口，bigchaindb默认的9985，不要填api的端口9984.另外最后一个安全选项，就是ws还是wss的区别。
+2.host需要带上http服务的端口号
+
+原来就是各种不出数据，主要还是配置文件的问题。
+
+看这个样子是个通过监控
+/api/v1/streams/valid_transactions的流数据展示到ui
+
+还有个用于生产环境的命令,就是启动端口不同，说是有优化
+
+两配置文件的问题
+Configurations
+The project can be configured using 2 JSON configuration files located at src/configs.
+
+bigchaindb.config.json This file can be used to configure the connection parameters for connecting to the BigchainDB network.
+ui-mapper.config.json This file can be used to configure to modify what user sees in the description for transfer & create transaction card, application context name and the maximum number of blocks a user can see on the UI.
+The fields create.description & transfer.description are used to parse the data from the raw transaction of create and transfer types respectively.
+
+bigchaindb.config.json 是用来设置坚挺的端口的就是把地址
+ws://127.0.0.1:9985/api/v1/streams/valid_transactions
+配置一下
+
+ui-mapper.config.json 就是个映射文件
+
+error:提示可能因为node和npm版本老不能收数据，emmm，更新的时候注意用管理员权限
+
+bug:
+根据提示静态文件/app/src/services/bdb.js
+中API_PATH变量丢失了http_port,可能是因为如果加了代理的话，http默认80端口的原因。
+
+好吧冤枉他了，在socket.js中可以看到默认bigchaindb.host在配置文件中是带有端口的。
+
+复习：就是个监听socket api 的ui，因为bigchaindb的特性，只单向的发送有效交易的数据流，是http api的补充，就当后台管理的了，应该挺容易集成的；可一用来做个人资产监控，这样需要对数据流进行过滤，所以还是应该先吧身份权限的样例整一下。
+
+2018/12/12

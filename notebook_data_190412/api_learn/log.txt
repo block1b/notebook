@@ -1,0 +1,14 @@
+emmm
+因为包装不上而延迟了。。。
+2019年4月2日14点11分
+
+2019年4月8日10点52分
+应该是个证书的问题，今天解决一下。然后用commit做一个新镜像。
+
+[不能apt install的问题](https://askubuntu.com/questions/1061486/unable-to-locate-package-python-pip-when-trying-to-install-from-fresh-18-04-in)
+
+15点12分
+原来是远程服务器的网络代理问题，耽误了我2周时间日
+
+直接看教程好了。
+

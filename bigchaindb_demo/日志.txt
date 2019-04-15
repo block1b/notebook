@@ -8,3 +8,15 @@
 还想用redis，但是现在没心情学，放一放 todo。
 
 今天练习一下python的mqttclient。
+
+2019年4月15日 16点15分
+
+对区块链，http api的理解加深；
+
+待测试metadata的使用，
+
+然后是bigchaindb-driver（python）的使用程度，api级or rpc or MQ
+
+我想用mq，go driver的问题是不能正确的加密，所以，只调用python的transfer prepare模块，顺便commit好了。然后所有的get，和业务，都
+
+通过go实现。到了拆模块的时候了。

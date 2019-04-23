@@ -1,0 +1,57 @@
+安装：
+https://developer.emqx.io/docs/emq/v3/cn/install.html
+
+Docker 镜像安装
+EMQ X 3.0 Docker 镜像下载: https://www.emqx.io/downloads/v3/latest/emqx-docker.zip
+
+解压 emqx-docker 镜像包:
+
+unzip emqx-docker-v3.0.zip
+加载镜像:
+
+docker load < emqx-docker-v3.0
+启动容器:
+
+docker run -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 emqttd:v2
+
+// docker run -tid --name emq30 -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 emqx-docker-v3.0
+
+停止容器:
+
+docker stop emq30
+开启容器:
+
+docker start emq30
+进入 Docker 控制台:
+
+docker exec -it emq30 /bin/sh
+
+设置：
+
+TCP 服务端口占用
+EMQ X R3.0 消息服务器默认占用的 TCP 端口包括:
+
+1883	MQTT 协议端口
+8883	MQTT/SSL 端口
+8083	MQTT/WebSocket 端口
+8080	HTTP API 端口
+18083	Dashboard 管理控制台端口
+EMQ X R3.0 占用的上述端口，可通过 etc/emqx.conf 配置文件的 ‘listener’ 段落设置:
+
+## TCP Listener: 1883, 127.0.0.1:1883, ::1:1883
+listener.tcp.external = 0.0.0.0:1883
+
+## SSL Listener: 8883, 127.0.0.1:8883, ::1:8883
+listener.ssl.external = 8883
+
+## External MQTT/WebSocket Listener
+listener.ws.external = 8083
+
+## HTTP Management API Listener
+listener.api.mgmt = 127.0.0.1:8080
+通过注释或删除相关段落，可禁用相关 TCP 服务启动。
+
+18083 端口是 Web 管理控制占用，该端口由 emqx_dashboard 插件启用。
+
+控制台 URL: http:://localhost:18083/ ，默认登录用户名: admin, 密码: public。
+

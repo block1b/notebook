@@ -7,3 +7,9 @@
 本目录更名为myproject
 
 技术探索完成，开始详细设计
+
+ei,直接使用flask admin模块算了，就是个用户+设备管理，不错不错；
+
+go有人写了个go-admin fufu 改之
+
+设计sql部分，级后台管理部分

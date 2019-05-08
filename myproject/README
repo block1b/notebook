@@ -40,3 +40,15 @@ emmm,罢了罢了前端是个坑，还是用小程序怼一下好了，把api写
 2019年5月7日09点14分
 
 突然想用mqtt做接口服务，e就用这个了，秀一把。
+
+2019年5月8日10点47分
+
+postServer done
+
+然后就是完成smartServer和weChat的业务层了
+
+emmm 创建和交易参数不太一样，不知道能不能共存 todo
+
+15点44分 emmm Id 我不会用ID的hen
+
+获取密钥 done
